@@ -1,0 +1,121 @@
+/* 
+    CSS style
+    Author     : Simon Skapik
+    
+    Content:
+    1) Basic formating
+    2) General
+    3) Page Content
+*/
+
+
+/* 
+*
+* 1) Basic formating
+*
+*/
+
+.hidden{
+	display:none;
+}
+.txt-left{
+	text-align:left;
+}
+.txt-center{
+	text-align:center;
+}
+.txt-right{
+	text-align:right;
+}
+.center{
+	margin:0 auto;
+}
+.full-width{
+	width:100%;
+}
+.half-width{
+	width:50%;
+}
+.v-align-top{
+	vertical-align:top;
+}
+.pointer{
+	cursor:pointer;
+}
+.color-black{
+	color:black;
+}
+.color-white{
+	color:white;
+}
+.color-alert{
+	color:#a60000;
+}
+.bold{
+	font-weight:bold;
+}
+.f-left{
+	float:left;
+}
+.f-right{
+	float:right;
+}
+.non-select{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.no-resize{
+	resize: none;
+}
+.auto-width{
+	width:auto;
+}
+
+/* 
+*
+* 2) General
+*
+*/
+
+.page{
+   width:70%;
+   margin:0 auto;
+   padding:5px;
+}
+
+.toolbar{
+   width:100%;
+   border-bottom:1px solid #bbb;
+   border-top:1px solid #bbb;
+}
+
+/* 
+*
+* 3) Page Content
+*
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+<computer>
+	<serial>WVYJB</serial>
+	<screen>13.3</screen>
+	<resolution>3840 x 2160</resolution>
+	<resolution_code>UHD 4K0</resolution_code>
+	<cpu>Intel Core M3(Kaby Lake / 7. generace)</cpu>
+	<cores>4</cores>
+	<ram>DDR3 SODIMM</ram>
+	<ram_type>2.400</ram_type>
+	<ram_capacity>8</ram_capacity><os>Linux</os>
+	<hdd>872</hdd>
+	<hdd_type>SSD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 960M</gpu>
+	<color>silver</color>
+	<height>38</height>
+	<width>288</width>
+	<depth>243</depth>
+	<weight>2</weight>
+	 
+</computer>
+<computer>
+	<serial>ZCS-3</serial>
+	<screen>13.3</screen>
+	<resolution>1920 x 1080</resolution>
+	<resolution_code>Full HD</resolution_code>
+	<cpu>Intel Core M3(Kaby Lake / 7. generace)</cpu>
+	<cores>2</cores>
+	<ram>LPDDR4</ram>
+	<ram_type>2.133</ram_type>
+	<ram_capacity>8</ram_capacity><os>UHD 4K0</os>
+	<hdd>658</hdd>
+	<hdd_type>SSHD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 1070</gpu>
+	<color>silver</color>
+	<height>13</height>
+	<width>309</width>
+	<depth>284</depth>
+	<weight>5</weight>
+	 
+</computer>
+<computer>
+	<serial>39Z19</serial>
+	<screen>17.3</screen>
+	<resolution>2560 x 1440</resolution>
+	<resolution_code>WQHD</resolution_code>
+	<cpu>Intel Core M3(Kaby Lake / 7. generace)</cpu>
+	<cores>4</cores>
+	<ram>LPDDR4</ram>
+	<ram_type>2.133</ram_type>
+	<ram_capacity>64</ram_capacity><os>Windows 8.1</os>
+	<hdd>1196</hdd>
+	<hdd_type>HDD</hdd_type>
+	<gpu>NVIDIA Quadro M1000M</gpu>
+	<color>grey</color>
+	<height>20</height>
+	<width>326</width>
+	<depth>325</depth>
+	<weight>1</weight>
+	 
+</computer>
+<computer>
+	<serial>6QSR0</serial>
+	<screen>17.3</screen>
+	<resolution>3200 x 1800</resolution>
+	<resolution_code>QHD +</resolution_code>
+	<cpu>Intel Core M3(Kaby Lake / 7. generace)</cpu>
+	<cores>4</cores>
+	<ram>DDR4 SODIMM</ram>
+	<ram_type>1.666</ram_type>
+	<ram_capacity>32</ram_capacity><os>UHD 4K0</os>
+	<hdd>983</hdd>
+	<hdd_type>SSHD</hdd_type>
+	<gpu>NVIDIA GeForce 940MX</gpu>
+	<color>grey</color>
+	<height>36</height>
+	<width>348</width>
+	<depth>365</depth>
+	<weight>4</weight>
+	 
+</computer>
+<computer>
+	<serial>99Z4S</serial>
+	<screen>14</screen>
+	<resolution>3200 x 1800</resolution>
+	<resolution_code>QHD +</resolution_code>
+	<cpu>Intel Core i3(Skylake / 6. generace)</cpu>
+	<cores>4</cores>
+	<ram>DDR3 SODIMM</ram>
+	<ram_type>2.400</ram_type>
+	<ram_capacity>16</ram_capacity><os>Windows 7</os>
+	<hdd>1521</hdd>
+	<hdd_type>HDD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 1050</gpu>
+	<color>grey</color>
+	<height>43</height>
+	<width>369</width>
+	<depth>258</depth>
+	<weight>2</weight>
+	 
+</computer>
+<computer>
+	<serial>B4SUY</serial>
+	<screen>14</screen>
+	<resolution>1366 x 768</resolution>
+	<resolution_code>HD</resolution_code>
+	<cpu>Intel Core i3(Skylake / 6. generace)</cpu>
+	<cores>4</cores>
+	<ram>LPDDR4</ram>
+	<ram_type>2.133</ram_type>
+	<ram_capacity>12</ram_capacity><os>no OS</os>
+	<hdd>1307</hdd>
+	<hdd_type>HDD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 1060</gpu>
+	<color>grey</color>
+	<height>10</height>
+	<width>391</width>
+	<depth>299</depth>
+	<weight>3</weight>
+	 
+</computer>
+<computer>
+	<serial>FLZLP</serial>
+	<screen>14</screen>
+	<resolution>1280 x 800</resolution>
+	<resolution_code>WXGA</resolution_code>
+	<cpu>Intel Core i3(Skylake / 6. generace)</cpu>
+	<cores>4</cores>
+	<ram>DDR4 SODIMM</ram>
+	<ram_type>1.666</ram_type>
+	<ram_capacity>8</ram_capacity><os>Windows 7</os>
+	<hdd>1845</hdd>
+	<hdd_type>SSHD</hdd_type>
+	<gpu>AMD Radeon R5 M430</gpu>
+	<color>grey</color>
+	<height>26</height>
+	<width>413</width>
+	<depth>339</depth>
+	<weight>1</weight>
+	 
+</computer>
+<computer>
+	<serial>I4TYH</serial>
+	<screen>15.6</screen>
+	<resolution>3840 x 2160</resolution>
+	<resolution_code>UHD 4K0</resolution_code>
+	<cpu>Intel Core i3(Skylake / 6. generace)</cpu>
+	<cores>4</cores>
+	<ram>DDR3 SODIMM</ram>
+	<ram_type>2.400</ram_type>
+	<ram_capacity>64</ram_capacity><os>Windows 8.1</os>
+	<hdd>1632</hdd>
+	<hdd_type>HDD</hdd_type>
+	<gpu>NVIDIA GeForce 940MX</gpu>
+	<color>red</color>
+	<height>33</height>
+	<width>435</width>
+	<depth>232</depth>
+	<weight>4</weight>
+	 
+</computer>
+<computer>
+	<serial>LZ0O9</serial>
+	<screen>15.6</screen>
+	<resolution>2560 x 1440</resolution>
+	<resolution_code>WQHD</resolution_code>
+	<cpu>Intel Core i3(Kaby Lake / 7. generace) </cpu>
+	<cores>2</cores>
+	<ram>DDR4 SODIMM</ram>
+	<ram_type>2.133</ram_type>
+	<ram_capacity>32</ram_capacity><os>UHD 4K0</os>
+	<hdd>169</hdd>
+	<hdd_type>SSD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 1050</gpu>
+	<color>red</color>
+	<height>49</height>
+	<width>255</width>
+	<depth>273</depth>
+	<weight>0</weight>
+	 
+</computer>
+<computer>
+	<serial>PH7FE</serial>
+	<screen>13.3</screen>
+	<resolution>3200 x 1800</resolution>
+	<resolution_code>QHD +</resolution_code>
+	<cpu>Intel Core i3(Kaby Lake / 7. generace) </cpu>
+	<cores>4</cores>
+	<ram>DDR3 SODIMM</ram>
+	<ram_type>1.666</ram_type>
+	<ram_capacity>16</ram_capacity><os>Windows 8.1</os>
+	<hdd>1956</hdd>
+	<hdd_type>SSHD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 1060</gpu>
+	<color>red</color>
+	<height>16</height>
+	<width>277</width>
+	<depth>313</depth>
+	<weight>3</weight>
+	 
+</computer>
+<computer>
+	<serial>SZ066</serial>
+	<screen>13.3</screen>
+	<resolution>1366 x 768</resolution>
+	<resolution_code>HD</resolution_code>
+	<cpu>Intel Core i3(Kaby Lake / 7. generace) </cpu>
+	<cores>2</cores>
+	<ram>LPDDR4</ram>
+	<ram_type>2.400</ram_type>
+	<ram_capacity>12</ram_capacity><os>no OS</os>
+	<hdd>494</hdd>
+	<hdd_type>SSD</hdd_type>
+	<gpu>AMD Radeon R5 M430</gpu>
+	<color>red</color>
+	<height>32</height>
+	<width>299</width>
+	<depth>354</depth>
+	<weight>1</weight>
+	 
+</computer>
+<computer>
+	<serial>VU7IY</serial>
+	<screen>17.3</screen>
+	<resolution>1366 x 768</resolution>
+	<resolution_code>HD</resolution_code>
+	<cpu>Intel Core i3(Kaby Lake / 7. generace) </cpu>
+	<cores>4</cores>
+	<ram>DDR4 SODIMM</ram>
+	<ram_type>2.133</ram_type>
+	<ram_capacity>8</ram_capacity><os>Windows 7</os>
+	<hdd>280</hdd>
+	<hdd_type>SSHD</hdd_type>
+	<gpu>NVIDIA GeForce 940MX</gpu>
+	<color>red</color>
+	<height>39</height>
+	<width>320</width>
+	<depth>247</depth>
+	<weight>2</weight>
+	 
+</computer>
+<computer>
+	<serial>YC0-4</serial>
+	<screen>17.3</screen>
+	<resolution>1280 x 800</resolution>
+	<resolution_code>WXGA</resolution_code>
+	<cpu>Intel Core i3(Haswell / 4. generace)</cpu>
+	<cores>4</cores>
+	<ram>DDR3 SODIMM</ram>
+	<ram_type>1.666</ram_type>
+	<ram_capacity>64</ram_capacity><os>no OS</os>
+	<hdd>818</hdd>
+	<hdd_type>SSHD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 1050</gpu>
+	<color>red</color>
+	<height>14</height>
+	<width>342</width>
+	<depth>287</depth>
+	<weight>0</weight>
+	 
+</computer>
+<computer>
+	<serial>2U80V</serial>
+	<screen>14</screen>
+	<resolution>3840 x 2160</resolution>
+	<resolution_code>UHD 4K0</resolution_code>
+	<cpu>Intel Core i7(Crystal Well / 4. generace)</cpu>
+	<cores>4</cores>
+	<ram>DDR4 SODIMM</ram>
+	<ram_type>1.666</ram_type>
+	<ram_capacity>32</ram_capacity><os>Linux</os>
+	<hdd>605</hdd>
+	<hdd_type>SSD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 1060</gpu>
+	<color>black</color>
+	<height>22</height>
+	<width>364</width>
+	<depth>328</depth>
+	<weight>3</weight>
+	 
+</computer>
+<computer>
+	<serial>5Q1QN</serial>
+	<screen>14</screen>
+	<resolution>1920 x 1080</resolution>
+	<resolution_code>Full HD</resolution_code>
+	<cpu>Intel Core i7(Crystal Well / 4. generace)</cpu>
+	<cores>4</cores>
+	<ram>DDR3 SODIMM</ram>
+	<ram_type>2.400</ram_type>
+	<ram_capacity>16</ram_capacity><os>Windows 10</os>
+	<hdd>1143</hdd>
+	<hdd_type>SSHD</hdd_type>
+	<gpu>AMD Radeon R7 M445</gpu>
+	<color>black</color>
+	<height>29</height>
+	<width>386</width>
+	<depth>221</depth>
+	<weight>5</weight>
+	 
+</computer>
+<computer>
+	<serial>8884S</serial>
+	<screen>15.6</screen>
+	<resolution>1920 x 1080</resolution>
+	<resolution_code>Full HD</resolution_code>
+	<cpu>Intel Core i7(Broadwell / 5. generace)</cpu>
+	<cores>2</cores>
+	<ram>LPDDR4</ram>
+	<ram_type>2.133</ram_type>
+	<ram_capacity>12</ram_capacity><os>UHD 4K0</os>
+	<hdd>929</hdd>
+	<hdd_type>HDD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 960M</gpu>
+	<color>black</color>
+	<height>45</height>
+	<width>407</width>
+	<depth>261</depth>
+	<weight>2</weight>
+	 
+</computer>
+<computer>
+	<serial>AP1UK</serial>
+	<screen>15.6</screen>
+	<resolution>2560 x 1440</resolution>
+	<resolution_code>WQHD</resolution_code>
+	<cpu>Intel Core i7(Broadwell / 5. generace)</cpu>
+	<cores>4</cores>
+	<ram>DDR4 SODIMM</ram>
+	<ram_type>1.666</ram_type>
+	<ram_capacity>8</ram_capacity><os>Windows 7</os>
+	<hdd>1468</hdd>
+	<hdd_type>SSHD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 1070</gpu>
+	<color>black</color>
+	<height>11</height>
+	<width>429</width>
+	<depth>302</depth>
+	<weight>0</weight>
+	 
+</computer>
+<computer>
+	<serial>EL8KC</serial>
+	<screen>15.6</screen>
+	<resolution>3200 x 1800</resolution>
+	<resolution_code>QHD +</resolution_code>
+	<cpu>Intel Core i7(Broadwell / 5. generace)</cpu>
+	<cores>2</cores>
+	<ram>LPDDR4</ram>
+	<ram_type>2.400</ram_type>
+	<ram_capacity>64</ram_capacity><os>no OS</os>
+	<hdd>1254</hdd>
+	<hdd_type>HDD</hdd_type>
+	<gpu>NVIDIA Quadro M1000M</gpu>
+	<color>black</color>
+	<height>27</height>
+	<width>250</width>
+	<depth>343</depth>
+	<weight>1</weight>
+	 
+</computer>
+<computer>
+	<serial>H31BH</serial>
+	<screen>13.3</screen>
+	<resolution>3200 x 1800</resolution>
+	<resolution_code>QHD +</resolution_code>
+	<cpu>Intel Core i7(Broadwell / 5. generace)</cpu>
+	<cores>4</cores>
+	<ram>DDR3 SODIMM</ram>
+	<ram_type>2.133</ram_type>
+	<ram_capacity>32</ram_capacity><os>Windows 7</os>
+	<hdd>1792</hdd>
+	<hdd_type>HDD</hdd_type>
+	<gpu>AMD Radeon R7 M445</gpu>
+	<color>white</color>
+	<height>35</height>
+	<width>272</width>
+	<depth>235</depth>
+	<weight>5</weight>
+	 
+</computer>
+<computer>
+	<serial>KL9O-</serial>
+	<screen>13.3</screen>
+	<resolution>1366 x 768</resolution>
+	<resolution_code>HD</resolution_code>
+	<cpu>Intel Core i5(Skylake / 6. generace)</cpu>
+	<cores>2</cores>
+	<ram>LPDDR4</ram>
+	<ram_type>1.666</ram_type>
+	<ram_capacity>16</ram_capacity><os>Windows 10</os>
+	<hdd>1579</hdd>
+	<hdd_type>SSHD</hdd_type>
+	<gpu>NVIDIA GeForce GTX 960M</gpu>
+	<color>white</color>
+	<height>10</height>
+	<width>293</width>
+	<depth>276</depth>
+	<weight>2</weight>
+	 
+</computer>
+</data>
