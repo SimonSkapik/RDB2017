@@ -12,13 +12,13 @@
 class MyDatabase{
    
    
-   /*private $dsn = 'sqlsrv:Server=PAVEL-PC\MSSQLSERVER2; Database=RDB2017_v2; MultipleActiveResultSets=true';
+   private $dsn = 'sqlsrv:Server=PAVEL-PC\MSSQLSERVER2; Database=RDB2017_v2; MultipleActiveResultSets=true';
    private $user = 'User';
    private $password = 'user123';
-   */
+   /*
    private $dsn = 'sqlsrv:Server=SAUCEPAN-NTB; Database=RDB2017_v2; MultipleActiveResultSets=true';
    private $user = 'Simon';
-   private $password = '436827';
+   private $password = '436827';*/
    private $MM;
 
    private $db;
@@ -119,12 +119,24 @@ class MyDatabase{
       return $this->FetchAll('SELECT DISTINCT ram_cap FROM laptops WHERE ram_cap IS NOT NULL');
    }
    
+   public function getCpuValues(){
+      return $this->FetchAll('SELECT name FROM parts WHERE id_param = 4 ORDER BY name ASC');
+   }
+   
+   public function getResolutionValues(){
+      return $this->FetchAll('
+	  SELECT sec.name AS "res_name", main.name AS "part_name", main.id_part AS "part_id", p.id_part_ref AS "res_id" FROM parts AS "main"
+			INNER JOIN pairs AS "p" ON main.id_part = p.id_part_val
+			INNER JOIN parts AS "sec" ON sec.id_part = p.id_part_ref
+			WHERE main.id_param = 3');
+   }
+
    public function getAll(){
       return $this->FetchAll('SELECT * FROM laptops');
    }
    
    public function getFiltered($filters){
-     //echo 'SELECT * FROM laptops WHERE ' . $filters;
+      echo 'SELECT * FROM laptops WHERE ' . $filters;
 	  return $this->FetchAll('SELECT * FROM laptops WHERE ' . $filters);
    }
 }

@@ -120,18 +120,74 @@ function getFilterState($filter){
             return false;
          }
       }break;
-	  case "ram_opt":{
-         if(isset($_GET['ram_opt'])){
-            return $_GET['ram_opt'];
+	  case "chck_ram_opt":{
+         if(isset($_GET['chck_ram_opt'])){
+            return $_GET['chck_ram_opt'];
          }else{
             return 'no';
          }
       }break;
-	  case "ram_val":{
-         if(isset($_GET['ram_val'])){
-            return $_GET['ram_val'];
+	  case "chck_ram_val":{
+         if(isset($_GET['chck_ram_val'])){
+            return $_GET['chck_ram_val'];
          }else{
             return 'no';
+         }
+      }break;
+	  case "chck_cpu":{
+         if(isset($_GET['chck_cpu'])){
+            return urldecode($_GET['chck_cpu']);
+         }else{
+            return 'no';
+         }
+      }break;
+	  case "chck_res":{
+         if(isset($_GET['chck_res'])){
+            return urldecode($_GET['chck_res']);
+         }else{
+            return 'no';
+         }
+      }break;
+	  case "chck_dim":{
+         if(isset($_GET['chck_dim'])){
+            return $_GET['chck_dim'];
+         }else{
+            return 'no';
+         }
+      }break;
+	  case "chck_height":{
+         if(isset($_GET['chck_height'])){
+            return $_GET['chck_height'];
+         }else{
+            return false;
+         }
+      }break;
+	  case "chck_width":{
+         if(isset($_GET['chck_width'])){
+            return $_GET['chck_width'];
+         }else{
+            return false;
+         }
+      }break;
+	  case "chck_depth":{
+         if(isset($_GET['chck_depth'])){
+            return $_GET['chck_depth'];
+         }else{
+            return false;
+         }
+      }break;
+	  case "chck_weight_from":{
+         if(isset($_GET['chck_weight_from'])){
+            return $_GET['chck_weight_from'];
+         }else{
+            return false;
+         }
+      }break;
+	  case "chck_weight_to":{
+         if(isset($_GET['chck_weight_to'])){
+            return $_GET['chck_weight_to'];
+         }else{
+            return false;
          }
       }break;
    }
@@ -166,9 +222,10 @@ function assembleFilter(){
    $filter .= ')';
    $filterList = array($filter);
    
-   if(isset($_GET['ram_opt']) && isset($_GET['ram_val'])){
+   // filter by RAM
+   if(isset($_GET['chck_ram_opt']) && isset($_GET['chck_ram_val']) && !($_GET['chck_ram_opt'] == 'no' || $_GET['chck_ram_val'] == 'no')){
 	  $fltr = "(ram_cap ";
-	  switch($_GET['ram_opt']){
+	  switch($_GET['chck_ram_opt']){
 		 case "lt":{
 			 $fltr .= "< ";
 		 }break;
@@ -185,17 +242,49 @@ function assembleFilter(){
 			 $fltr .= "= ";
 		 }break;
 	  }
-	  $fltr .= $_GET['ram_val'] . ')';
+	  $fltr .= $_GET['chck_ram_val'] . ')';
 	  array_push($filterList, $fltr);
    }
-   /*
-   if(cpu){
-      array_push($filterList,"cpu = xx";
+   
+   // filter by CPU
+   if(isset($_GET['chck_cpu']) && $_GET['chck_cpu'] != 'no'){
+	  array_push($filterList,"cpu = '" . urldecode($_GET["chck_cpu"] . "'"));
    }
    
+   // filter by resolution
+   if(isset($_GET['chck_res']) && $_GET['chck_res'] != 'no'){	  
+	  array_push($filterList,"resolution = '" . urldecode($_GET["chck_res"] . "'"));
+   }
+   
+   // filter by dimensions
+   if(isset($_GET['chck_height']) && isset($_GET['chck_width']) && isset($_GET['chck_depth']) && isset($_GET['chck_dim']) && $_GET['chck_dim'] != 'no'){
+	  $s = "";
+	  if($_GET['chck_dim'] == "lt")
+	     $s = "< ";
+	  else
+		 $s = "> ";
+	  
+	  $farr = array();
+	  if($_GET['chck_height'] != ""){
+		  array_push($farr, "(high " . $s . $_GET['chck_height'] . ")");
+	  }
+	  if($_GET['chck_width'] != ""){
+		  array_push($farr, "(wide " . $s . $_GET['chck_width'] . ")");
+	  }
+	  if($_GET['chck_depth'] != ""){
+		  array_push($farr, "(deep " . $s . $_GET['chck_depth'] . ")");
+	  }
+	  $fltr = '(' . implode(' AND ', $farr) . ')';
+	  array_push($filterList, $fltr);
+   }
+   
+   // filter by weight
+   if(isset($_GET['chck_weight_from']) && isset($_GET['chck_weight_to']) && !($_GET['chck_weight_from'] == '' || $_GET['chck_weight_to'] == '')){
+	  array_push($filterList, '(weight BETWEEN ' . $_GET['chck_weight_from'] .  " AND " . $_GET['chck_weight_to'] . ")");
+   }
   
-   ...
-   */
+  
+  
    $filter = implode(' AND ', $filterList) . '))';
    
    return $filter;
