@@ -44,7 +44,7 @@ if(isset($_POST['btn_import'])){
                <input type="checkbox" id="chck_state_part" name="chck_state_part" <?php echo getFilterState("chck_state_part") ? 'checked="checked"' : ""  ?> /><label for="chck_state_part">Part error</label>
                <input type="checkbox" id="chck_state_pair" name="chck_state_pair" <?php echo getFilterState("chck_state_pair") ? 'checked="checked"' : ""  ?> /><label for="chck_state_pair">Pair error</label>
                <input type="checkbox" id="chck_state_duplicity" name="chck_state_duplicity" <?php echo getFilterState("chck_state_duplicity") ? 'checked="checked"' : ""  ?> /><label for="chck_state_duplicity">Duplicity error</label>
-               <input type="submit" name="btn_filter" value="Filter" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <br \><br>
+               <input type="submit" name="btn_filter" value="Filter" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <br><br>
                
 			   <label>RAM option: </label>
 			   <select name="chck_ram_opt">
@@ -117,6 +117,16 @@ if(isset($_POST['btn_import'])){
             <?php echo dataToHTML($products); ?>
          </div>
       </div>
+	  <div class="page">
+		<label>Top 10 filters</label><br>
+		 <?php
+			$i = 1;
+		    foreach($DB->getTopFilters() as $val){
+			   ?><a href = "?<?php echo $val[1] ?>">Top <?php echo $i++?></a><br><?php
+			}
+		 ?>
+	     
+	  </div>
       
       <div class="page" id="footbar"></div>
       

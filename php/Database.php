@@ -130,6 +130,10 @@ class MyDatabase{
 			INNER JOIN parts AS "sec" ON sec.id_part = p.id_part_ref
 			WHERE main.id_param = 3');
    }
+   
+   public function getTopFilters(){
+      return $this->FetchAll('SELECT TOP 10 * FROM filters ORDER BY use_count DESC');
+   }
 
    public function getAll(){
       return $this->FetchAll('SELECT * FROM laptops');
