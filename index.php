@@ -125,9 +125,7 @@ if(isset($_POST['btn_import'])){
 			   ?><a href = "?<?php echo $val[1] ?>">Top <?php echo $i++?></a><br><?php
 			}
 		 ?>
-	     
-	  </div>
-      
+	  </div>     
       <div class="page" id="footbar"></div>
       
    </div>
