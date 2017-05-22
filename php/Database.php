@@ -11,14 +11,14 @@
 
 class MyDatabase{
    
-   
+   /*
    private $dsn = 'sqlsrv:Server=PAVEL-PC\MSSQLSERVER2; Database=RDB2017_v2; MultipleActiveResultSets=true';
    private $user = 'User';
-   private $password = 'user123';
-   /*
+   private $password = 'user123';*/
+   
    private $dsn = 'sqlsrv:Server=SAUCEPAN-NTB; Database=RDB2017_v2; MultipleActiveResultSets=true';
    private $user = 'Simon';
-   private $password = '436827';*/
+   private $password = '436827';
    private $MM;
 
    private $db;
@@ -64,6 +64,11 @@ class MyDatabase{
       return -1;
    }
    
+   public function SaveFileHash($fileHash){
+      $prep = $this->db->prepare("INSERT INTO imported (file_hash, import_date) VALUES ('$fileHash',GETDATE())");
+      $prep->execute();
+   }
+   
    public function ImportData($data){
       // Data order:
       // name                 0     S    
@@ -97,10 +102,10 @@ class MyDatabase{
                      ram_cap, ram_cap_f, os, os_f, hdd_cap, hdd_cap_f, hdd_type, hdd_type_f, gpu, gpu_f, color, color_f,
                      high, high_f, wide, wide_f, deep, deep_f, weight, weight_f,
                      has_part_error, has_pair_error, has_duplicity_error)";
-         $query .= "VALUES  ('".$data[$i][0] . "','".$data[$i][1] . "',000,'".$data[$i][2] . "',000,'".$data[$i][3] . "',000,
-                     '".$data[$i][4] . "',000,".$data[$i][5] . ",000,'".$data[$i][6] . "',000,'".$data[$i][7] . "',000,
-                     ".$data[$i][8] . ",000,'".$data[$i][9] . "',000,".$data[$i][10] . ",000,'".$data[$i][11] . "',000,'".$data[$i][12] . "',000,'".$data[$i][13] . "',000,
-                     ".$data[$i][14] . ",000,".$data[$i][15] . ",000,".$data[$i][16] . ",000,".$data[$i][17] . ",000,
+         $query .= "VALUES  ('".$data[$i][0] . "','".$data[$i][1] . "',0,'".$data[$i][2] . "',0,'".$data[$i][3] . "',0,
+                     '".$data[$i][4] . "',0,".$data[$i][5] . ",0,'".$data[$i][6] . "',0,'".$data[$i][7] . "',0,
+                     ".$data[$i][8] . ",0,'".$data[$i][9] . "',0,".$data[$i][10] . ",0,'".$data[$i][11] . "',0,'".$data[$i][12] . "',0,'".$data[$i][13] . "',0,
+                     ".$data[$i][14] . ",0,".$data[$i][15] . ",0,".$data[$i][16] . ",0,".$data[$i][17] . ",0,
                      0,0,0);";
          //echo $query;
          //$query = "";
@@ -111,8 +116,13 @@ class MyDatabase{
       }
       //echo $query;
       $prep = $this->db->prepare($query);
-      $prep->execute();
-      return true;
+      $res = $prep->execute();
+      
+      if($res)
+         return true;
+      
+      $this->MM->addMessage(new Message(Message::APLICATION_ERROR, "Failed to import data. Error: " . $prep->errorInfo()));
+      return false;
    }
    
    public function getMemoryValues(){
@@ -136,7 +146,7 @@ class MyDatabase{
    }
 
    public function getAll(){
-      return $this->FetchAll('SELECT * FROM laptops');
+      return $this->FetchAll('SELECT * FROM laptops ORDER BY name');
    }
    
    public function insertFilter(){
@@ -150,7 +160,7 @@ class MyDatabase{
    
    public function getFiltered($filters){
       //echo 'SELECT * FROM laptops WHERE ' . $filters;
-	  return $this->FetchAll('SELECT * FROM laptops WHERE ' . $filters);
+	  return $this->FetchAll('SELECT * FROM laptops WHERE ' . $filters .  ' ORDER BY name');
    }
 }
 

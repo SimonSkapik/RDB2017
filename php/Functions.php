@@ -65,9 +65,9 @@ function import_file($importFile){
    $importResult = $DB->ImportData($data);
    if($importResult){
       $MM->addMessage(new Message(Message::SUCCESS, "File Successfuly imported."));
+      $DB->SaveFileHash($fileHash);
       return false;
    }else{
-      $MM->addMessage(new Message(Message::APLICATION_ERROR, "Error occured during import."));
       return false;
    }
    
@@ -321,29 +321,39 @@ function dataToHTML($data){
    return $code;
 }
 
-if(isset($_GET['btn_filter'])){
-   $data = $DB->getFiltered(assembleFilter());
-   $DB->insertFilter();
-}else{
-   $data = $DB->getAll();
-}
+$products;
 
-
-$last = "";
-$ind = -1;
-$products = array();
-foreach($data as $ltp){
-   if($last != $ltp['name']){
-      $ind++;
-      $products[$ind] = new Laptop($ltp['name']);
-      $products[$ind]->addData(array($ltp['has_part_error'],$ltp['has_pair_error'],$ltp['has_duplicity_error']),
-                              array($ltp['screen'], $ltp['resolution'], $ltp['resolution_name'], $ltp['cpu'], $ltp['cores'], $ltp['ram_type'], $ltp['ram_speed'], $ltp['ram_cap'], $ltp['os'], $ltp['hdd_type'], $ltp['hdd_cap'], $ltp['gpu'], $ltp['color'], $ltp['high'], $ltp['wide'], $ltp['deep'], $ltp['weight']),
-                              array($ltp['screen_f'], $ltp['resolution_f'], $ltp['resolution_name_f'], $ltp['cpu_f'], $ltp['cores_f'], $ltp['ram_type_f'], $ltp['ram_speed_f'], $ltp['ram_cap_f'], $ltp['os_f'], $ltp['hdd_type_f'], $ltp['hdd_cap_f'], $ltp['gpu_f'], $ltp['color_f'], $ltp['high_f'], $ltp['wide_f'], $ltp['deep_f'], $ltp['weight_f']));
-      $last = $ltp['name'];
+function loadData(){
+   //global $data;
+   global $products;
+   global $DB;
+   
+   if(isset($_GET['btn_filter'])){
+      $data = $DB->getFiltered(assembleFilter());
+      $DB->insertFilter();
    }else{
-      $products[$ind]->addData(array($ltp['has_part_error'],$ltp['has_pair_error'],$ltp['has_duplicity_error']),
-                        array($ltp['screen'], $ltp['resolution'], $ltp['resolution_name'], $ltp['cpu'], $ltp['cores'], $ltp['ram_type'], $ltp['ram_speed'], $ltp['ram_cap'], $ltp['os'], $ltp['hdd_type'], $ltp['hdd_cap'], $ltp['gpu'], $ltp['color'], $ltp['high'], $ltp['wide'], $ltp['deep'], $ltp['weight']),
-                        array($ltp['screen_f'], $ltp['resolution_f'], $ltp['resolution_name_f'], $ltp['cpu_f'], $ltp['cores_f'], $ltp['ram_type_f'], $ltp['ram_speed_f'], $ltp['ram_cap_f'], $ltp['os_f'], $ltp['hdd_type_f'], $ltp['hdd_cap_f'], $ltp['gpu_f'], $ltp['color_f'], $ltp['high_f'], $ltp['wide_f'], $ltp['deep_f'], $ltp['weight_f']));
+      $data = $DB->getAll();
+   }
+
+
+   $last = "";
+   $ind = -1;
+   $products = array();
+   foreach($data as $ltp){
+      if($last != $ltp['name']){
+         $ind++;
+         $products[$ind] = new Laptop($ltp['name']);
+         $products[$ind]->addData(array($ltp['has_part_error'],$ltp['has_pair_error'],$ltp['has_duplicity_error']),
+                                 array($ltp['screen'], $ltp['resolution'], $ltp['resolution_name'], $ltp['cpu'], $ltp['cores'], $ltp['ram_type'], $ltp['ram_speed'], $ltp['ram_cap'], $ltp['os'], $ltp['hdd_type'], $ltp['hdd_cap'], $ltp['gpu'], $ltp['color'], $ltp['high'], $ltp['wide'], $ltp['deep'], $ltp['weight']),
+                                 array($ltp['screen_f'], $ltp['resolution_f'], $ltp['resolution_name_f'], $ltp['cpu_f'], $ltp['cores_f'], $ltp['ram_type_f'], $ltp['ram_speed_f'], $ltp['ram_cap_f'], $ltp['os_f'], $ltp['hdd_type_f'], $ltp['hdd_cap_f'], $ltp['gpu_f'], $ltp['color_f'], $ltp['high_f'], $ltp['wide_f'], $ltp['deep_f'], $ltp['weight_f']));
+         $last = $ltp['name'];
+      }else{
+         $products[$ind]->addData(array($ltp['has_part_error'],$ltp['has_pair_error'],$ltp['has_duplicity_error']),
+                           array($ltp['screen'], $ltp['resolution'], $ltp['resolution_name'], $ltp['cpu'], $ltp['cores'], $ltp['ram_type'], $ltp['ram_speed'], $ltp['ram_cap'], $ltp['os'], $ltp['hdd_type'], $ltp['hdd_cap'], $ltp['gpu'], $ltp['color'], $ltp['high'], $ltp['wide'], $ltp['deep'], $ltp['weight']),
+                           array($ltp['screen_f'], $ltp['resolution_f'], $ltp['resolution_name_f'], $ltp['cpu_f'], $ltp['cores_f'], $ltp['ram_type_f'], $ltp['ram_speed_f'], $ltp['ram_cap_f'], $ltp['os_f'], $ltp['hdd_type_f'], $ltp['hdd_cap_f'], $ltp['gpu_f'], $ltp['color_f'], $ltp['high_f'], $ltp['wide_f'], $ltp['deep_f'], $ltp['weight_f']));
+      }
    }
 }
+
+
 

@@ -14,6 +14,8 @@ if(isset($_POST['btn_import'])){
    import_file($_FILES['import_file']);
 }
 
+loadData();
+
 ?>
 
 <!DOCTYPE html>
