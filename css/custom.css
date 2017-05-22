@@ -1,12 +1,15 @@
-/* 
-    CSS style
-    Author     : Simon Skapik
-    
-    Content:
-    1) Basic formating
-    2) General
-    3) Page Content
-*/
+/*********************************
+*
+*    CSS style
+*
+*    Author: Simon Skapik
+*    
+*    Content:
+*    1) Basic formating
+*    2) General
+*    3) Page Content
+*
+**********************************/
 
 
 /* 
@@ -82,7 +85,7 @@
 */
 
 .page{
-   width:70%;
+   width:90%;
    margin:0 auto;
    padding:5px;
 }
@@ -91,6 +94,44 @@
    width:100%;
    border-bottom:1px solid #bbb;
    border-top:1px solid #bbb;
+}
+
+table.styled tr td{
+   border-top:1px solid #aaa;
+}
+
+table.styled tr:nth-child(odd){
+   background:#efefef;
+}
+
+table.styled tr:nth-child(even){
+   background:#e1e1e1;
+}
+
+tr.ltp-error{
+   background:#ffc8c8 !important;
+}
+
+span.ltp-error{
+   float:right;
+   display:block;
+   width:10px;
+   height:10px;
+   margin:0;
+   /*margin:0 0 -10px -10px;*/
+   padding:0;
+}
+
+.ltp-error.part{
+   background:yellow;   
+}
+
+.ltp-error.pair{
+   background:orange;
+}
+
+.ltp-error.duplicity{
+   background:red;
 }
 
 /* 
