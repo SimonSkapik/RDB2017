@@ -130,23 +130,23 @@ VALUES
 */
 INSERT INTO parts(id_param,name) 
 VALUES
-(4, 'Intel Core i3(Broadwell ); 5. generace)'),
-(4, 'Intel Core i3(Haswell ); 4. generace)'),
-(4, 'Intel Core i3(Kaby Lake ); 7. generace) '),
-(4, 'Intel Core i3(Skylake ); 6. generace)'),
-(4, 'Intel Core i5(Broadwell ); 5. generace)'),
-(4, 'Intel Core i5(Haswell ); 4. generace)'),
-(4, 'Intel Core i5(Kaby Lake ); 7. generace)'),
-(4, 'Intel Core i5(Skylake ); 6. generace)'),
-(4, 'Intel Core i7(Broadwell ); 5. generace)'),
-(4, 'Intel Core i7(Crystal Well ); 4. generace)'),
-(4, 'Intel Core i7(Haswell ); 4. generace)'),
-(4, 'Intel Core i7(Kaby Lake ); 7. generace)'),
-(4, 'Intel Core i7(Skylake ); 6. generace)'),
-(4, 'Intel Core M3(Kaby Lake ); 7. generace)'),
-(4, 'Intel Core M3(Skylake ); 6. generace)'),
-(4, 'Intel Core M5(Skylake ); 6. generace)'),
-(4, 'Intel Core M7(Skylake ); 6. generace)');
+(4, 'Intel Core i3(Broadwell / 5. generace)'),
+(4, 'Intel Core i3(Haswell / 4. generace)'),
+(4, 'Intel Core i3(Kaby Lake / 7. generace) '),
+(4, 'Intel Core i3(Skylake / 6. generace)'),
+(4, 'Intel Core i5(Broadwell / 5. generace)'),
+(4, 'Intel Core i5(Haswell / 4. generace)'),
+(4, 'Intel Core i5(Kaby Lake / 7. generace)'),
+(4, 'Intel Core i5(Skylake / 6. generace)'),
+(4, 'Intel Core i7(Broadwell / 5. generace)'),
+(4, 'Intel Core i7(Crystal Well / 4. generace)'),
+(4, 'Intel Core i7(Haswell / 4. generace)'),
+(4, 'Intel Core i7(Kaby Lake / 7. generace)'),
+(4, 'Intel Core i7(Skylake / 6. generace)'),
+(4, 'Intel Core M3(Kaby Lake / 7. generace)'),
+(4, 'Intel Core M3(Skylake / 6. generace)'),
+(4, 'Intel Core M5(Skylake / 6. generace)'),
+(4, 'Intel Core M7(Skylake / 6. generace)');
 
 INSERT INTO parts(id_param,name) 
 VALUES
