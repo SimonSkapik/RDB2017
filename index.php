@@ -45,6 +45,12 @@ if(isset($_POST['btn_import'])){
                <input type="checkbox" id="chck_state_pair" name="chck_state_pair" <?php echo getFilterState("chck_state_pair") ? 'checked="checked"' : ""  ?> /><label for="chck_state_pair">Pair error</label>
                <input type="checkbox" id="chck_state_duplicity" name="chck_state_duplicity" <?php echo getFilterState("chck_state_duplicity") ? 'checked="checked"' : ""  ?> /><label for="chck_state_duplicity">Duplicity error</label>
                <input type="submit" name="btn_filter" value="Filter" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+               <?php
+               
+               foreach($DB->getMemoryValues() as $val){
+                  
+               }
+               ?>
             </form>
          </div>
       </div>

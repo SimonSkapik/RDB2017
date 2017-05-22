@@ -8,19 +8,19 @@
 **********************************/
 
 // Message management
-include '/php/MessageManager.php';
+include './php/MessageManager.php';
 $MM = new MessageManager();
 
 // Databace connection
-include '/php/Database.php';
+include './php/Database.php';
 $DB = new MyDatabase($MM);
 //var_dump($DB->TestGet());
 
 // Data parsers
-include '/php/DataParsers.php';
+include './php/DataParsers.php';
 
 // Product classes
-include '/php/Products.php';
+include './php/Products.php';
 
 
 function import_file($importFile){
@@ -126,9 +126,12 @@ function getFilterState($filter){
 function assembleFilter(){
    $filter = "";
    $filterList  = array();
+   $is_ok = false;
    if(isset($_GET['chck_state_ok'])){
-      array_push($filterList,'(has_part_error = 0 AND has_pair_error = 0 AND has_duplicity_error = 0)');
+      $filter .= '(name NOT IN (SELECT DISTINCT name FROM laptops WHERE (has_part_error = 1 OR has_pair_error = 1 OR has_duplicity_error = 1)))';
+      $is_ok = true;
    }
+   
    if(isset($_GET['chck_state_part'])){
       array_push($filterList,'(has_part_error = 1)');
    }
@@ -138,7 +141,15 @@ function assembleFilter(){
    if(isset($_GET['chck_state_duplicity'])){
       array_push($filterList,'(has_duplicity_error = 1)');
    }
-   $filter = implode(' OR ', $filterList);
+   
+   if(count($filterList) > 0){
+      if($is_ok){
+         $filter .= " OR ";
+      }
+      $filter .= '(name IN (SELECT DISTINCT name FROM laptops WHERE ';
+      $filter .= implode(' OR ', $filterList) . '))';
+   }
+   
    return $filter;
 }
 
