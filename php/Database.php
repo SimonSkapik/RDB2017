@@ -135,8 +135,17 @@ class MyDatabase{
       return $this->FetchAll('SELECT * FROM laptops');
    }
    
+   public function insertFilter(){
+	  $fil = $_SERVER['QUERY_STRING'];
+	  //echo $fil;  
+	  $query = "INSERT INTO filters (filter_str) VALUES ('" . $fil . "')";
+	  $prep = $this->db->prepare($query);
+      $prep->execute(); 
+	  return true;
+   }
+   
    public function getFiltered($filters){
-      echo 'SELECT * FROM laptops WHERE ' . $filters;
+      //echo 'SELECT * FROM laptops WHERE ' . $filters;
 	  return $this->FetchAll('SELECT * FROM laptops WHERE ' . $filters);
    }
 }

@@ -323,6 +323,7 @@ function dataToHTML($data){
 
 if(isset($_GET['btn_filter'])){
    $data = $DB->getFiltered(assembleFilter());
+   $DB->insertFilter();
 }else{
    $data = $DB->getAll();
 }
