@@ -120,6 +120,20 @@ function getFilterState($filter){
             return false;
          }
       }break;
+	  case "ram_opt":{
+         if(isset($_GET['ram_opt'])){
+            return $_GET['ram_opt'];
+         }else{
+            return 'no';
+         }
+      }break;
+	  case "ram_val":{
+         if(isset($_GET['ram_val'])){
+            return $_GET['ram_val'];
+         }else{
+            return 'no';
+         }
+      }break;
    }
 }
 
@@ -141,14 +155,50 @@ function assembleFilter(){
    if(isset($_GET['chck_state_duplicity'])){
       array_push($filterList,'(has_duplicity_error = 1)');
    }
-   
-   if(count($filterList) > 0){
-      if($is_ok){
-         $filter .= " OR ";
-      }
-      $filter .= '(name IN (SELECT DISTINCT name FROM laptops WHERE ';
-      $filter .= implode(' OR ', $filterList) . '))';
+   if($is_ok){
+	  $filter .= " OR ";
    }
+   $filter .= '(name IN (SELECT DISTINCT name FROM laptops WHERE ';
+   if(count($filterList) > 0){
+      $filter .= '(' . implode(' OR ', $filterList) . ')';
+   }else{
+	  $filter .= '1=1';
+   }
+   
+   $filterList = array($filter);
+   
+   if(isset($_GET['ram_opt']) && isset($_GET['ram_val'])){
+	  $fltr = "(ram_cap ";
+	  switch($_GET['ram_opt']){
+		 case "lt":{
+			 $fltr .= "< ";
+		 }break;
+		 case "gt":{
+			 $fltr .= "> ";
+		 }break;
+		 case "le":{
+			 $fltr .= "<= ";
+		 }break;
+		 case "gt":{
+			 $fltr .= ">= ";
+		 }break;
+		 case "eq":{
+			 $fltr .= "= ";
+		 }break;
+	  }
+	  $fltr .= $_GET['ram_val'] . ')';
+	  array_push($filterList, $fltr);
+   }
+   /*
+   if(cpu){
+      array_push($filterList,"cpu = xx";
+   }
+   
+  
+   ...
+   */
+   $filter = implode(' AND ', $filterList) . '))';
+   var_dump($filter);
    
    return $filter;
 }

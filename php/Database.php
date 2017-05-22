@@ -12,13 +12,13 @@
 class MyDatabase{
    
    
-   /*private $dsn = 'sqlsrv:Server=PAVEL-PC\MSSQLSERVER2; Database=RDB2017_v2; MultipleActiveResultSets=true';
+   private $dsn = 'sqlsrv:Server=PAVEL-PC\MSSQLSERVER2; Database=RDB2017_v2; MultipleActiveResultSets=true';
    private $user = 'User';
    private $password = 'user123';
-   */
+   /*
    private $dsn = 'sqlsrv:Server=SAUCEPAN-NTB; Database=RDB2017_v2; MultipleActiveResultSets=true';
    private $user = 'Simon';
-   private $password = '436827';
+   private $password = '436827';*/
    private $MM;
 
    private $db;
@@ -116,7 +116,7 @@ class MyDatabase{
    }
    
    public function getMemoryValues(){
-      return $this->FetchAll('SELECT DISTINCT ram_cap FROM laptops');
+      return $this->FetchAll('SELECT DISTINCT ram_cap FROM laptops WHERE ram_cap IS NOT NULL');
    }
    
    public function getAll(){
@@ -124,8 +124,8 @@ class MyDatabase{
    }
    
    public function getFiltered($filters){
-      //echo 'SELECT * FROM laptops WHERE ' . $filters;
-      return $this->FetchAll('SELECT * FROM laptops WHERE ' . $filters);
+      echo 'SELECT * FROM laptops WHERE ' . $filters;
+	  return $this->FetchAll('SELECT * FROM laptops WHERE ' . $filters);
    }
 }
 
