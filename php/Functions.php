@@ -138,7 +138,7 @@ function getFilterState($filter){
 }
 
 function assembleFilter(){
-   $filter = "";
+   $filter = "name IN (SELECT DISTINCT name FROM laptops WHERE ((";
    $filterList  = array();
    $is_ok = false;
    if(isset($_GET['chck_state_ok'])){
@@ -147,24 +147,23 @@ function assembleFilter(){
    }
    
    if(isset($_GET['chck_state_part'])){
-      array_push($filterList,'(has_part_error = 1)');
+      array_push($filterList,'has_part_error = 1');
    }
    if(isset($_GET['chck_state_pair'])){
-      array_push($filterList,'(has_pair_error = 1)');
+      array_push($filterList,'has_pair_error = 1');
    }
    if(isset($_GET['chck_state_duplicity'])){
-      array_push($filterList,'(has_duplicity_error = 1)');
-   }
-   if($is_ok){
-	  $filter .= " OR ";
-   }
-   $filter .= '(name IN (SELECT DISTINCT name FROM laptops WHERE ';
-   if(count($filterList) > 0){
-      $filter .= '(' . implode(' OR ', $filterList) . ')';
-   }else{
-	  $filter .= '1=1';
+      array_push($filterList,'has_duplicity_error = 1');
    }
    
+   if(count($filterList) > 0){
+      if($is_ok){
+        $filter .= " OR ";
+      }
+      $filter .= '(name IN (SELECT DISTINCT name FROM laptops WHERE ';
+      $filter .= '(' . implode(' OR ', $filterList) . ')))';
+   }
+   $filter .= ')';
    $filterList = array($filter);
    
    if(isset($_GET['ram_opt']) && isset($_GET['ram_val'])){
@@ -198,7 +197,6 @@ function assembleFilter(){
    ...
    */
    $filter = implode(' AND ', $filterList) . '))';
-   var_dump($filter);
    
    return $filter;
 }
