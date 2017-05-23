@@ -235,7 +235,7 @@ function assembleFilter(){
 		 case "le":{
 			 $fltr .= "<= ";
 		 }break;
-		 case "gt":{
+		 case "ge":{
 			 $fltr .= ">= ";
 		 }break;
 		 case "eq":{
@@ -290,6 +290,94 @@ function assembleFilter(){
    return $filter;
 }
 
+function formatFilter($flrt){
+   $str = "";
+   $fltrs = explode('&',$flrt);
+   $values = array();
+   foreach($fltrs as $f){
+      $pair = explode('=',$f);
+      if(isset($pair[1])){
+         $values[$pair[0]] = urldecode(urldecode($pair[1]));
+      }else{
+         $values[$pair[0]] = "";
+      }
+   }
+   $states = array();
+   if(isset($values['chck_state_ok'])){
+      array_push($states, "Ok");
+   }
+   if(isset($values['chck_state_part'])){
+      array_push($states, "Part err");
+   }
+   if(isset($values['chck_state_pair'])){
+      array_push($states, "Pair err");
+   }
+   if(isset($values['chck_state_duplicity'])){
+      array_push($states, "Dupl. err");
+   }
+   if(count($states)){
+      $str .= "States: [".implode(', ',$states)."]";
+   }
+   if($values['chck_ram_val'] != "no" && $values['chck_ram_opt'] != "no"){
+      $op = "";
+      switch($values['chck_ram_opt']){
+         case "lt":{
+            $op = "&lt;";
+         }break;
+         case "gt":{
+            $op = "&gt;";
+         }break;
+         case "eq":{
+            $op = "=";
+         }break;
+         case "le":{
+            $op = "&gt;=";
+         }break;
+         case "ge":{
+            $op = "&gt;=";
+         }break;
+      }
+      $str .= " RAM: " . $op . " " . $values['chck_ram_val'] . ", ";
+   }
+   if($values['chck_cpu'] != "no"){
+      $str .= " CPU: " . $values['chck_cpu'] . ", ";
+   }
+   if($values['chck_res'] != "no"){
+      $str .= " Res: " . $values['chck_res'] . ", ";
+   }
+   if(($values['chck_height'] != "" || $values['chck_width'] != "" || $values['chck_depth'] != "") && $values['chck_dim'] != "no"){
+      $op = "";
+      switch($values['chck_dim']){
+         case "lt":{
+            $op = "&lt;";
+         }break;
+         case "gt":{
+            $op = "&gt;";
+         }break;
+      }
+      if(!$values['chck_height']){
+         $values['chck_height'] = "?";
+      }
+      if(!$values['chck_width']){
+         $values['chck_width'] = "?";
+      }
+      if(!$values['chck_depth']){
+         $values['chck_depth'] = "?";
+      }
+      $str .= " Dim: " . $op . " [" . $values['chck_height'] . " x " . $values['chck_width'] . " x " . $values['chck_depth'] . "], ";
+   }
+   if($values['chck_weight_from'] != "" || $values['chck_weight_to'] != ""){
+      if(!$values['chck_weight_from']){
+         $values['chck_weight_from'] = "?";
+      }
+      if(!$values['chck_weight_to']){
+         $values['chck_weight_to'] = "?";
+      }
+      $str .= " Weight: " . $values['chck_weight_from'] . " &lt; " . $values['chck_weight_to'];
+   }
+   return $str;
+}
+
 function dataToHTML($data){
    $code = '<table class="styled" cellspacing="0" cellpadding="3"><thead>
    <tr>
@@ -321,10 +409,15 @@ function dataToHTML($data){
    return $code;
 }
 
+function countsToHTML($nums){
+   return "Showing: $nums[0] results. Ok: $nums[1], Has part err: $nums[2], Has pair err: $nums[3], Has duplicity err: $nums[4]";
+}
+
 $products;
+$counts = array(0,0,0,0,0);
 
 function loadData(){
-   //global $data;
+   global $counts;
    global $products;
    global $DB;
    
@@ -353,7 +446,12 @@ function loadData(){
                            array($ltp['screen_f'], $ltp['resolution_f'], $ltp['resolution_name_f'], $ltp['cpu_f'], $ltp['cores_f'], $ltp['ram_type_f'], $ltp['ram_speed_f'], $ltp['ram_cap_f'], $ltp['os_f'], $ltp['hdd_type_f'], $ltp['hdd_cap_f'], $ltp['gpu_f'], $ltp['color_f'], $ltp['high_f'], $ltp['wide_f'], $ltp['deep_f'], $ltp['weight_f']));
       }
    }
+   
+   foreach($products as $ltp){
+      $ltp->addToCounts($counts);
+   }
 }
+
 
 
 

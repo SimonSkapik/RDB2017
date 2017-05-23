@@ -52,14 +52,24 @@ class CSVParser implements DataParser
 
 class JSONParser implements DataParser
 {
-   public function GetData($file){
-      return false;
+   public function GetData($filename){
+      $json = json_decode(file_get_contents($filename), true);
+      $data = array();
+      foreach($json['data'] as $ltp){
+         array_push($data, array($ltp['serial'], $ltp['screen'], $ltp['resolution'], $ltp['resolution_code'], $ltp['cpu'], $ltp['cores'], $ltp['ram'], $ltp['ram_type'], $ltp['ram_capacity'], $ltp['os'], $ltp['hdd'], $ltp['hdd_type'], $ltp['gpu'], $ltp['color'], $ltp['height'], $ltp['width'], $ltp['depth'], $ltp['weight']));
+      }
+      return $data;
    }
 }
 
 class XMLParser implements DataParser
 {
-   public function GetData($file){
-      return false;
+   public function GetData($filename){
+      $xml = simplexml_load_file($filename) or die("Error: Cannot create object");
+      $data = array();
+      foreach($xml->computer as $ltp){
+         array_push($data, array($ltp->serial, $ltp->screen, $ltp->resolution, $ltp->resolution_code, $ltp->cpu, $ltp->cores, $ltp->ram, $ltp->ram_type, $ltp->ram_capacity, $ltp->os, $ltp->hdd, $ltp->hdd_type, $ltp->gpu, $ltp->color, $ltp->height, $ltp->width, $ltp->depth, $ltp->weight));
+      }
+      return $data;
    }
 }

@@ -88,6 +88,22 @@ class Laptop{
          }
       }
    }
+   
+   public function addToCounts(&$counts){
+      $counts[0]++;
+      if(!$this->has_part_error && !$this->has_pair_error && !$this->has_duplicity_error ){
+         $counts[1]++;
+      }
+      if($this->has_part_error){
+         $counts[2]++;
+      }
+      if($this->has_pair_error){
+         $counts[3]++;
+      }
+      if($this->has_duplicity_error){
+         $counts[4]++;
+      }
+   }
 
    public function ToHTML(){
       $code = "<tr ";

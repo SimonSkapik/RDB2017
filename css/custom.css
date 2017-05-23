@@ -96,6 +96,10 @@
    border-top:1px solid #bbb;
 }
 
+table.styled{
+   width:100%;
+}
+
 table.styled tr td{
    border-top:1px solid #aaa;
 }
@@ -140,8 +144,23 @@ span.ltp-error{
 *
 */
 
+.half{
+   width:50%;
+   margin:0;
+   padding:0;
+   float:left;
+   height:330px;
+}
 
+.block{
+   padding:10px;
+   margin:10px;
+   background:#dedede;
+}
 
+.block h3{
+   margin:0;
+}
 
 
 
